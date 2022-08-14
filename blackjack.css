@@ -67,4 +67,23 @@ body {
     background-repeat:no-repeat;
     background-size:cover;
 }
+
+#trump {
+    display:none;
+}
  
+#tie {
+    display:none;
+}
+#busted {
+    display:none;
+}
+#lucky {
+    display:none;
+}
+#close {
+    display:none;
+}
+#lose {
+    display:none;
+}

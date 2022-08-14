@@ -84,28 +84,36 @@ function stay() {
     document.getElementById("hidden").src = "./cards/" + hidden + ".png"; // reveal the hidden  card when  player ends the  turn
 
     let message = "";
-    if (playerSum > 21) {
-        message = `You are Busted! You Lose! Total sum of your cards is ${playerSum}.Better luck next time!`
-    }
-    else if (playerSum == 22 || playerSum == 23) {
+
+    if (playerSum == 22 || playerSum == 23) {
         message = `You were so close! You Lose! Total sum of your cards is ${playerSum}.Better luck next time!`
+        document.querySelector("#close").style.display ='inline';
+    }
+    else if (playerSum > 21) {
+        message = `You are Busted! You Lose! Total sum of your cards is ${playerSum}.Better luck next time!`
+        document.querySelector("#busted").style.display ='inline';
     }
 
     else if (dealerSum > 21) {
-        message = `Dealer is busted! You Win! Total sum of dealer cards is ${dealerSum}.Lady Luck is smiling on you  today :)!`
+        message = `Dealer is busted! You Win! Total sum of dealer cards is ${dealerSum}.Lady Luck is smiling on you today :)`
+        document.querySelector("#lucky").style.display ='inline';
+        
     }
     // both you and dealer <=21
     else if (playerSum == dealerSum) {
-        message = "This round has ended in a Draw!";
+        message = "This round has ended in a Tie!";
+        document.querySelector("#tie").style.display ='inline';
     }
 
     else if (playerSum > dealerSum) {
         message = `Your cards sum of ${playerSum} trumps dealer's! You Win!`;
+        document.querySelector("#trump").style.display ='inline';
         
     }
 
     else if (playerSum < dealerSum) {
-        message = `Your cards sum of ${playerSum} is less than dealer's! You Lose!`;
+        message = `Your cards sum of ${playerSum} is less than dealer's! You Lose! Better luck next time!`;
+        document.querySelector("#lose").style.display ='inline';
     }
 
     document.getElementById("player-sum").innerText = playerSum;
